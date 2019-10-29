@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>No IVI site</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="../images/7339-modify-your-logo.gif">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/style1.css">
+</head>
+<body>
+	<div class="wrapper">
+<header>
+	
+	<div class="container-header">
+		<div class="row header">
+			<div class="col-1">
+				<img src="../images/7339-modify-your-logo.gif" alt="" id = "main-logo">
+			</div>
+			<div class="col-2 main-links"><a href="">Фильмы</a></div>
+			<div class="col-2 main-links"><a href="">Сериалы</a></div>
+			<div class="col-2 main-links"><a href="">Трейлеры</a></div>
+			<div class="col-2 main-links"><a href="">Кино</a></div>
+			<div class="col-3 search">
+				<input type="text" onkeyup="filter()" id="myInput" placeholder="Search">		
+			</div>
+		</div>
+</header>
+<main>
+	<!-- <div class="container film-showing">
+		<div class="row">
+			<div class="col-1">
+			<h1>Кобейн чёртов монтаж</h1>
+			</div>
+		</div>
+		<div class="row film-showing">
+			<div class="col-5">
+				<img id = "detailPage-img"src="../images/1.jpg" alt="">
+			</div>
+			<div class="col-7">
+				<div class="row">
+					<div class="col-3">
+						<p>Рейтинг: 10.0</p>
+					</div>
+					<div class="col-3">
+						<p>Год: 2017</p>
+					</div>
+					<div class="col-3">
+						<p>Жанр: Триллер</p>
+					</div>
+					<div class="col-3">
+						<p>Страна: Америка</p>
+					</div>
+				</div>
+				<p id="text-description">
+					
+				</p>
+			</div>
+		</div>
+	</div> -->
+</main>
+<footer class="page-footer font-small indigo">
+	<div class="container">
+		<div class="row">
+			<div class="col-4 col-footer">
+				 <i class="fab fa-facebook-square footer-icon"></i>
+			</div>
+			<div class="col-4 col-footer">
+				 <i class="fab fa-instagram footer-icon"></i>
+			</div>
+			<div class="col-4 col-footer">
+				<i class="fab fa-twitter footer-icon"></i>
+			</div>
+		</div>
+	</div>
+</footer>
+<script src="../model/MovieDetailsView.js"></script>
+<script src="../model/Movie.js"></script>
+<script>
+	var MDV = new MovieDetailsView();
+	var main = document.querySelector("main");
+	MDV.render(new Movie(1,"Кобейн чёртов монтаж","Уникальный документальный фильм о жизни и творчестве одной из самых ярких и одиозных фигур в мировой рок-культуре, идоле целого поколения, музыканте и лидере группы «Нирвана», Курте Кобейне. Материалы, показанные в фильме, действительно эксклюзивны. Домашнее видео, рисунки, интервью – все это всегда оставалось за кадром. Они никогда нигде не были опубликованы при жизни певца, а после смерти по завещанию были переданы ближайшим родственникам и друзьям. Режиссеру фильма, Бретту Моргену, удалось получить все эти записи и смонтировать потрясающий, откровенный фильм о выдающемся человеке и незаурядном артисте. Проследив весь путь Кобейна от его первых выступлений в городе Абердин, штат Висконсия, до зенита его мировой славы, автор ленты пытается заглянуть внутрь этого человека, понять, что превратило его в великого кумира и настоящую легенду, и что непрерывно толкало его к саморазрушению и смерти. Не упустите шанс посмотреть онлайн «Кобейн: Чертов монтаж», яркий и противоречивый рассказ о жизни и смерти Курта Кобейна.","Triller","USA",0,5.0,2017),main);
+
+</script>
+</body>

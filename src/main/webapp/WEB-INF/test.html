@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+		$.ajax({
+			url: "/DiplomJSAdvance/MoviesServlet",
+			method: "POST",
+			data: "text/html",
+			error: function(message){
+				console.log(message);
+			},
+
+			success: function(data){
+				console.log(data);
+				callBack(data);
+			}
+		});
+</script>

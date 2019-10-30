@@ -11,9 +11,10 @@ public class Movie {
 	private String country;
 	private int rating;
 	private int year;
+	private String imageSource;
 	
 	
-	public Movie(int id, String name, String description, String genre, String country,int rating, int year) {
+	public Movie(int id, String name, String description, String genre, String country,int rating, int year,String imageSource) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -21,6 +22,7 @@ public class Movie {
 		this.country = country;
 		this.rating = rating;
 		this.year = year;
+		this.imageSource = imageSource;
 	}
 
 
@@ -93,6 +95,17 @@ public class Movie {
 	public void setYear(int year) {
 		this.year = year;
 	}
+
+
+	public String getImageSource() {
+		return imageSource;
+	}
+
+
+	public void setImageSource(String imageSource) {
+		this.imageSource = imageSource;
+	}
+	
 
 
 

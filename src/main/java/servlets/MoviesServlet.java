@@ -26,13 +26,6 @@ public class MoviesServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/test.html");
-		rd.forward(request, response);
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		MovieController mc = new MovieController();
 		String json = new Gson().toJson(mc.getAllMovies());
 		System.out.println(json);
@@ -41,6 +34,12 @@ public class MoviesServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
         out.write(json);
         out.flush();   
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 	}
 
 }

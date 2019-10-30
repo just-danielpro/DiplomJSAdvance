@@ -30,7 +30,7 @@ var id = searchParams.get("id");
 		colFilmImage.classList.add("col-5");
 		var img = document.createElement("img");
 		img.id = "detailPage-img";
-		img.setAttribute("src","../images/"+movie.id+".jpg");
+		img.setAttribute("src","../"+movie.imageSource);
 		colFilmImage.appendChild(img);
 		rowFS.appendChild(colFilmImage);
 		var colFilmInfo = document.createElement("div");

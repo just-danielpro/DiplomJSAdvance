@@ -17,7 +17,7 @@ MovieView.prototype = {
 		var div = document.createElement("div");
 		div.classList.add("film-container")
 		var img = document.createElement("img");
-		img.setAttribute("src","images/"+movie.id+".jpg");
+		img.setAttribute("src",movie.imageSource);
 		
 		var a = document.createElement("a");
 		a.setAttribute("href","pages/detailPage.html?id="+movie.id);

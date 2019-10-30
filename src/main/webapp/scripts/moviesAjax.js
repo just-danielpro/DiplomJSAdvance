@@ -1,7 +1,7 @@
 var dataConfig;
 $.ajax({
 			url: "/DiplomJSAdvance/MoviesServlet",
-			method: "POST",
+			method: "GET",
 			data: "text/html",
 			error: function(message){
 				console.log(message);

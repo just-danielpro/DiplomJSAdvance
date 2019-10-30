@@ -18,7 +18,7 @@
 			<div class="col-1">
 				<img src="images/7339-modify-your-logo.gif" alt="" id = "main-logo">
 			</div>
-			<div class="col-2 main-links"><a href="">Фильмы</a></div>
+			<div class="col-2 main-links"><a href="/DiplomJSAdvance">Фильмы</a></div>
 			<div class="col-2 main-links"><a href="">Сериалы</a></div>
 			<div class="col-2 main-links"><a href="">Трейлеры</a></div>
 			<div class="col-2 main-links"><a href="">Кино</a></div>
@@ -90,8 +90,9 @@
 	<script src="model/MovieListView.js"></script>
 	<script>
 
-	MovieList.movieList = getDataAjax();
-
+	window.MovieList.movieList = getDataAjax();
+	window.MovieListView.movieList = window.MovieList.movieList;
+	window.MovieListView.renderAll(document.querySelector(".row.film-showing"));
 	</script>
 	</div>
 </body>

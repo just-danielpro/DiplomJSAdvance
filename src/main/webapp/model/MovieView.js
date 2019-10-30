@@ -17,11 +17,12 @@ MovieView.prototype = {
 		var div = document.createElement("div");
 		div.classList.add("film-container")
 		var img = document.createElement("img");
-		img.setAttribute("src","images/"+movie.getId()+".jpg");
+		img.setAttribute("src","images/"+movie.id+".jpg");
+		
 		var a = document.createElement("a");
-		a.setAttribute("href","#");
+		a.setAttribute("href","pages/detailPage.html?id="+movie.id);
 		var span = document.createElement("span");
-		span.textContent=movie.getName();
+		span.textContent=movie.name;
 		span.classList.add("film-name");
 		a.append(span);
 		div.appendChild(img);

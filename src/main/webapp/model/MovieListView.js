@@ -1,12 +1,12 @@
-function MovieListView(movieList)
-{
-	this.movieList = movieList;
-	this.movieView = new MovieView();
-}
+(function(){
 
-MovieListView.prototype = {
 
-	renderById: function(id,element){
+	var MovieListView = {
+
+		movieList:" ",
+		movieView: new MovieView(),
+
+		renderById: function(id,element){
 		var movie = this.movieList.find(item => item.getId()==id);
 		this.movieView.render(movie,element);
 	},
@@ -16,4 +16,8 @@ MovieListView.prototype = {
 			this.movieView.render(item,element);
 		});
 	},
-}
+	}
+
+	window.MovieListView = MovieListView;
+
+}());

@@ -2,7 +2,7 @@
 (function(){
 var MovieList = {
 
-	movieList: getDataAjax(),
+	movieList: " ",
 
 
 	add:  function(movie)

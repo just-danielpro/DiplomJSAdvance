@@ -1,10 +1,13 @@
-function MovieDetailsView(){
 
-}
 
-MovieDetailsView.prototype = {
+(function(){
 
-	render: function(movie,element){
+let searchParams = new URLSearchParams(window.location.search);
+var id = searchParams.get("id");
+	var MovieDetailsView = {
+
+		render: function(element){
+		var movie = window.MovieList.findMovieById(id);
 		var containerFS = document.createElement("div");
 		containerFS.classList.add("container");
 		containerFS.classList.add("film-showing");
@@ -13,7 +16,7 @@ MovieDetailsView.prototype = {
 		var divNameFilm = document.createElement("div");
 		divNameFilm.classList.add("col-1");
 		var filmName = document.createElement("h1");
-		filmName.textContent = movie.getName();
+		filmName.textContent = movie.name;
 		divNameFilm.appendChild(filmName);
 		row.appendChild(divNameFilm);
 		containerFS.appendChild(row);
@@ -27,7 +30,7 @@ MovieDetailsView.prototype = {
 		colFilmImage.classList.add("col-5");
 		var img = document.createElement("img");
 		img.id = "detailPage-img";
-		img.setAttribute("src","../images/"+movie.getId()+".jpg");
+		img.setAttribute("src","../images/"+movie.id+".jpg");
 		colFilmImage.appendChild(img);
 		rowFS.appendChild(colFilmImage);
 		var colFilmInfo = document.createElement("div");
@@ -46,18 +49,18 @@ MovieDetailsView.prototype = {
 		var p2 = document.createElement("p");
 		var p3 = document.createElement("p");
 		var p4 = document.createElement("p");
-		p1.textContent = movie.getRating();
+		p1.textContent = "Рейтинг: " + movie.rating;
 		bootsTrapDiv1.appendChild(p1);
-		p2.textContent = movie.getYear();
+		p2.textContent = "Год: " + movie.year;
 		bootsTrapDiv2.appendChild(p2);
-		p3.textContent = movie.getGenre();
+		p3.textContent = "Жанр: " + movie.genre;
 		bootsTrapDiv3.appendChild(p3);
-		p4.textContent = movie.getCountry();
+		p4.textContent = "Страна: " + movie.country;
 		bootsTrapDiv4.appendChild(p4);
 
 		var filmDesc = document.createElement("p");
 		filmDesc.id = "text-description";
-		filmDesc.textContent = movie.getDescription();
+		filmDesc.textContent = movie.description;
 		
 		rowFilmInfo.appendChild(bootsTrapDiv1);
 		rowFilmInfo.appendChild(bootsTrapDiv3);
@@ -69,6 +72,9 @@ MovieDetailsView.prototype = {
 		containerFS.appendChild(rowFS);
 		element.appendChild(containerFS);
 
-	}
-}
+	},
 
+	}
+
+	window.MovieDetailsView = MovieDetailsView;
+}());

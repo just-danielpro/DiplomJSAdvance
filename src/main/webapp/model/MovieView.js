@@ -27,6 +27,41 @@ MovieView.prototype = {
 		a.append(span);
 		div.appendChild(img);
 		div.appendChild(a);
+		var i = document.createElement("i");
+		i.classList.add("fas");
+		i.classList.add("fa-redo-alt");
+		i.classList.add("reload-button");
+		i.setAttribute("name",movie.id);
+		// var modal = document.querySelector(".modal");
+		// var span = document.querySelector(".close")
+		// function closeModal(){
+		// 	modal.style.display = "none";
+		// 	span.removeEventListener("click",closeModal);
+		// };
+		// i.addEventListener("click",function(){
+		// 	modal.style.display = "block";
+		// 	span.addEventListener("click",closeModal);
+		// });
+		div.appendChild(i);
+		var containerEvent = document.querySelector(".container.film-showing");
+		function closeModal(){
+			var mod = document.querySelector(".modal");
+			var span = document.querySelector(".close");
+			mod.style.display = "none";
+			span.removeEventListener("click",closeModal);
+			i.addEventListener("click",openModal);
+			window.MovieEditView.clear(element);
+		};
+		function openModal(){
+			console.log(i.getAttribute("name"));
+			window.MovieEditView.render(i.getAttribute("name"),element);
+			var mod = document.querySelector(".modal");
+			var span = document.querySelector(".close");
+			mod.style.display = "block";
+			span.addEventListener("click",closeModal);
+			i.removeEventListener("click",openModal);
+		}
+		i.addEventListener("click",openModal);
 		bootsTrapCol.appendChild(div);
 		element.append(bootsTrapCol);
 
@@ -35,7 +70,6 @@ MovieView.prototype = {
 			var el = element.nextElementSibling
 			if((el)!=null)
 			{
-				console.log("Тут");
 				this.render(movie,el);
 			}else
 			{

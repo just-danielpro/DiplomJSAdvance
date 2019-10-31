@@ -19,7 +19,7 @@
 				<img src="images/7339-modify-your-logo.gif" alt="" id = "main-logo">
 			</div>
 			<div class="col-2 main-links"><a href="/DiplomJSAdvance">Фильмы</a></div>
-			<div class="col-2 main-links"><a href="">Сериалы</a></div>
+			<div class="col-2 main-links"><a href="#">Сериалы</a></div>
 			<div class="col-2 main-links"><a href="">Трейлеры</a></div>
 			<div class="col-2 main-links"><a href="">Кино</a></div>
 			<div class="col-3 search">
@@ -39,6 +39,62 @@
 				<div class="film-container">
 				<img src="http://baskino.me/uploads/images/2015/981/flii329.jpg" alt="kobain-heck-montage">
 				<a href="#"><span class="film-name">Кобейн чёртов монтаж</span></a>
+				</div>
+			</div> -->
+			<!-- <div class="modal">
+				<div class="modal-content">
+					<span class = "close"><i class="fas fa-times"></i></span>
+					<div class="container">
+						<div class="row inputs-modal">
+							<div class="col-2">
+								Название Фильма 
+							</div>	
+							<div class="col-2">
+								<input type="text" class = "textinput">
+							</div>
+							
+						</div>
+						<div class="row inputs-modal">
+							<div class="col-2">
+								Описание фильма
+							</div>	
+							<div class="col-2">
+								<input type="textare" class = "textinput">
+							</div>
+						</div>
+						<div class="row inputs-modal">
+							<div class="col-2">
+								Жанр фильма
+							</div>	
+							<div class="col-2">
+								<input type="textare" class = "textinput">
+							</div>
+						</div>
+						<div class="row inputs-modal">
+							<div class="col-2">
+								Страна фильма
+							</div>	
+							<div class="col-2">
+								<input type="textare" class = "textinput">
+							</div>
+						</div>
+						<div class="row inputs-modal">
+							<div class="col-2">
+								Рейтинг фильма
+							</div>	
+							<div class="col-2">
+								<input type="textare" class = "textinput">
+							</div>
+						</div>
+						<div class="row inputs-modal">
+							<div class="col-2">
+								Год фильма
+							</div>	
+							<div class="col-2">
+								<input type="textare" class = "textinput">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div> -->
 		</div>
@@ -74,7 +130,6 @@
 
 
 
-	<script src="scripts/script1.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -82,9 +137,11 @@
 	</script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 	</script>
+	<script src="scripts/script1.js"></script>
 	<script  src="scripts/moviesAjax.js"></script>
 	<script src="model/Movie.js"></script>
 	<script src="model/MovieList.js"></script>
+	<script src="model/MovieEditView.js"></script>
 	<script src="homework/homework1.js"></script>
 	<script src="model/MovieView.js"></script>
 	<script src="model/MovieListView.js"></script>
@@ -93,6 +150,7 @@
 	window.MovieList.movieList = getDataAjax();
 	window.MovieListView.movieList = window.MovieList.movieList;
 	window.MovieListView.renderAll(document.querySelector(".row.film-showing"));
+	//new MovieEditView().render(window.MovieListView.movieList[0]);
 	</script>
 	</div>
 </body>

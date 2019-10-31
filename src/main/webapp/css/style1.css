@@ -142,3 +142,60 @@ p
 	width:220px;
 	height: 352px;
 }
+
+.reload-button
+{
+	color:white;
+}
+
+.reload-button:hover
+{
+	color:silver;
+	font-size:20px;
+}
+
+.modal
+{
+	display:none;
+	position: fixed;
+	z-index:1;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content
+{
+	background-color: #fefefe;
+	margin:15% auto;
+	padding:20px;
+	border:1px solid black;
+	width: 80%;
+	height: 60%;
+}
+.close
+{
+	color:#aaa;
+	display:flex;
+	justify-content: flex-end;
+	font-size:28px;
+	font-weight: bold;
+}
+.inputs-modal
+{
+	display:flex;
+	justify-content: center;
+}
+.textinput
+{
+	margin-bottom:10px;
+}
+#textArea
+{
+	position: relative;
+	width:500px;
+	height: 80px;
+}

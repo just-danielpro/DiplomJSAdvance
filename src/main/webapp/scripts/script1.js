@@ -1,8 +1,8 @@
 // function filter()
 // {
-// 	var input = document.getElementById("myInput");
+// 	var input = document.querySelector("#myInput");
 // 	var filter = input.value.toUpperCase();
-// 	var span = getElementsByClassName("film-name");
+// 	var span = getElementsByClassName(".contrainer.film-showing");
 // 	for(var i = 0; i < span.length; i++)
 // 	{
 // 		if(span[i].innerHTML.toUpperCase().indexOf(filter) > -1)

@@ -1,5 +1,7 @@
 (function(){
 
+	
+	
 	var MovieEditView = {
 				render : function(id,element){	
 			var movie = window.MovieList.findMovieById(id);
@@ -134,6 +136,21 @@
 			row6.appendChild(colFilmYear);
 			row6.appendChild(colFilmYearInput);
 
+			var row7 = document.createElement("div"); // ряд для изменений
+			row7.classList.add("row");
+			row7.classList.add("inputs-modal");
+
+			var colFilmButton = document.createElement("div");
+			colFilmButton.classList.add("col-2");
+			var button = document.createElement("i");
+			button.classList.add("far");
+			button.classList.add("fa-share-square");
+			button.classList.add("edit-movie-button");
+
+			colFilmButton.appendChild(button);
+
+			row7.appendChild(colFilmButton);
+
 			
 			container.appendChild(row1);
 			container.appendChild(row2);
@@ -141,6 +158,7 @@
 			container.appendChild(row4);
 			container.appendChild(row5);
 			container.appendChild(row6);
+			container.appendChild(row7);
 			modalContent.appendChild(span);
 			modalContent.appendChild(container);
 			modal.appendChild(modalContent);

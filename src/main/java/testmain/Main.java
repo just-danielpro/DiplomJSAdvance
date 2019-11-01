@@ -11,5 +11,7 @@ public class Main {
 		MovieController mc = new MovieController ();
 		String json = new Gson().toJson(mc.getAllMovies());
 		System.out.println(json);
+		
+		mc
 	}
 }

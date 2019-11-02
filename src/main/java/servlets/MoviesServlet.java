@@ -28,7 +28,6 @@ public class MoviesServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String json = new Gson().toJson(mc.getAllMovies());
-		System.out.println(json);
 		response.setCharacterEncoding("UTF-8"); 
 		 response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
@@ -47,6 +46,7 @@ public class MoviesServlet extends HttpServlet {
 	        sb.append(line);
 	    Gson gson = new Gson();
 	    Movie movie = gson.fromJson(sb.toString(), Movie.class);
+	    System.out.println(movie);
 	    mc.updateMovie(movie);
 		
 	}

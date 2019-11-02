@@ -52,12 +52,13 @@ MovieView.prototype = {
 				return;
 			}
 			var arr = document.querySelectorAll(".textinput");
-			var filmName = arr[0].getAttribute("value");
-			var filmDesc = arr[1].textContent;
-			var filmGenre = arr[2].getAttribute("value");
-			var filmCountry = arr[3].getAttribute("value");
-			var filmRating = arr[4].getAttribute("value");
-			var filmYear = arr[5].getAttribute("value");
+			var filmName = arr[0].value;
+			var filmDesc = arr[1].value;
+			var filmGenre = arr[2].value;
+			var filmCountry = arr[3].value;
+			var filmRating = arr[4].value;
+			var filmYear = arr[5].value;
+			console.log(filmName);
 
 			if(filmName != null){
 				if(filmName.length > 0)
@@ -69,12 +70,12 @@ MovieView.prototype = {
 				if(filmCountry.length > 0)
 					movie.country = filmCountry;
 				if(filmRating.length > 0)
-					movie.rating = filmRating;
+					movie.rating = Number(filmRating);
 				if(filmYear.length > 0)
-					movie.year = filmYear;
+					movie.year = Number(filmYear);
 			}
 			sendAjaxData(movie,function(){alert("The data was update successful")});
-
+			setTimeout(()=>window.location.reload(),1000);
 
 		}
 		function closeModal(){

@@ -22,7 +22,7 @@ public class MovieController {
 		System.out.println("Connection.....");
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			this.conn = DriverManager.getConnection("jdbc:mysql://localhost/diplomjsadvanced?user=root&password=");
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost/diplomjsadvanced?characterEncoding=UTF-8&user=root&password=");
 			st = conn.createStatement();
 			System.out.println("Connection obtained");
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
@@ -33,8 +33,8 @@ public class MovieController {
 	
 	public void updateMovie(Movie movie) 
 	{
-		String UPDATE_MOVIE = "UPDATE movies SET name="+movie.getName()+",description="+movie.getDescription()+",genre="+movie.getGenre()+
-				",country="+movie.getCountry()+",rating="+movie.getRating()+",year="+movie.getYear()+" WHERE id="+movie.getId();
+		String UPDATE_MOVIE = "UPDATE movies SET name='"+movie.getName()+"',description='"+movie.getDescription()+"',genre='"+movie.getGenre()+
+				"',country='"+movie.getCountry()+"',rating="+movie.getRating()+",year="+movie.getYear()+" WHERE id="+movie.getId();
 		try {
 			st.execute(UPDATE_MOVIE);
 		} catch (SQLException e) {

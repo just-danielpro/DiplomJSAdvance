@@ -8,6 +8,7 @@
 	<link rel="shortcut icon" href="images/7339-modify-your-logo.gif">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style1.css">
+
 </head>
 <body>
 	<div class="wrapper">
@@ -23,7 +24,7 @@
 			<div class="col-2 main-links"><a href="">Трейлеры</a></div>
 			<div class="col-2 main-links"><a href="">Кино</a></div>
 			<div class="col-3 search">
-				<input type="text" onkeyup="filter()" id="myInput" placeholder="Search">		
+				<input type="text" onkeyup="filterMovie()" id="myInput" placeholder="Search">		
 			</div>
 		</div>
 </header>
@@ -137,7 +138,6 @@
 	</script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 	</script>
-	<script src="scripts/script1.js"></script>
 	<script src="scripts/moviesAjaxSendData.js"></script>
 	<script  src="scripts/moviesAjax.js"></script>
 	<script src="model/Movie.js"></script>
@@ -146,6 +146,7 @@
 	<script src="homework/homework1.js"></script>
 	<script src="model/MovieView.js"></script>
 	<script src="model/MovieListView.js"></script>
+	<script src="scripts/script1.js"></script>
 	<script>
 
 	window.MovieList.movieList = getDataAjax();

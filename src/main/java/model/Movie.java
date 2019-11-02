@@ -105,6 +105,14 @@ public class Movie {
 	public void setImageSource(String imageSource) {
 		this.imageSource = imageSource;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", name=" + name + ", description=" + description + ", genre=" + genre + ", country="
+				+ country + ", rating=" + rating + ", year=" + year + ", imageSource=" + imageSource + "]";
+	}
+	
 	
 
 

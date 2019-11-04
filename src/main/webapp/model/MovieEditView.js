@@ -3,7 +3,7 @@
 	
 	
 	var MovieEditView = {
-				render : function(id,element){	
+			render : function(id,element){	
 			var movie = window.MovieList.findMovieById(id);
 			var modal = document.createElement("div");
 			modal.classList.add("modal"); // первый div

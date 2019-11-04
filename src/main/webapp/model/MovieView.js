@@ -28,21 +28,17 @@ MovieView.prototype = {
 		div.appendChild(img);
 		div.appendChild(a);
 		var i = document.createElement("i");
+		var i2 = document.createElement("i");
 		i.classList.add("fas");
 		i.classList.add("fa-redo-alt");
 		i.classList.add("reload-button");
+		i2.classList.add("far");
+		i2.classList.add("fa-times-circle");
+		i2.classList.add("delete-button");
 		i.setAttribute("name",movie.id);
-		// var modal = document.querySelector(".modal");
-		// var span = document.querySelector(".close")
-		// function closeModal(){
-		// 	modal.style.display = "none";
-		// 	span.removeEventListener("click",closeModal);
-		// };
-		// i.addEventListener("click",function(){
-		// 	modal.style.display = "block";
-		// 	span.addEventListener("click",closeModal);
-		// });
+		i2.setAttribute("name",movie.id);
 		div.appendChild(i);
+		div.appendChild(i2);
 		var containerEvent = document.querySelector(".container.film-showing");
 
 		function sendData(){
@@ -96,8 +92,13 @@ MovieView.prototype = {
 			span.addEventListener("click",closeModal);
 			buttonSend.addEventListener("click",sendData);
 			i.removeEventListener("click",openModal);
-		}
+		};
 		i.addEventListener("click",openModal);
+		i2.addEventListener("click",function(){
+			var agreement = confirm("Are you sure, you want to delete the movie "+ window.MovieList.findMovieById(i2.getAttribute("name")).name,"");
+			 agreement == true ? removeMovie(Number(i2.getAttribute("name")),errorMessage=>console.log(message),successMessage=>console.log(successMessage)):"";
+			 agreement == true ? window.location.reload() : "";
+		});
 		bootsTrapCol.appendChild(div);
 		element.append(bootsTrapCol);
 

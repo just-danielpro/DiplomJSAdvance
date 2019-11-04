@@ -58,8 +58,25 @@ public class MovieController {
 		}
 		
 		return (ArrayList<Movie>) list;
-		
-		
+	}
+	
+	public void deleteMovie(Movie movie) 
+	{
+		String DELETE_USER = "DELETE FROM movies WHERE id = "+movie.getId();
+		String MAX_ID = "SELECT MAX(id) FROM movies";
+		try {
+			st.execute(DELETE_USER);
+		//	ResultSet rs = st.executeQuery(MAX_ID);
+//			while(rs.next()) 
+//			{
+//				if((movie.getId() - Integer.parseInt(rs.getString(1))) == 1) 
+//				{
+//					
+//				}
+//			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

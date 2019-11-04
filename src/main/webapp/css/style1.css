@@ -148,7 +148,20 @@ p
 	color:white;
 }
 
+.delete-button
+{
+	color:white;
+	margin-left:15px;
+	font-size:18px;
+}
+
 .reload-button:hover
+{
+	color:silver;
+	font-size:20px;
+}
+
+.delete-button:hover
 {
 	color:silver;
 	font-size:20px;

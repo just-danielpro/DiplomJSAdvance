@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>servlets.MoviesServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>MovieServletDeleteOrCreate</servlet-name>
+  	<display-name>MovieServletDeleteOrCreate</display-name>
+  	<description></description>
+  	<servlet-class>servlets.MovieServletDeleteOrCreate</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MoviesServlet</servlet-name>
   	<url-pattern>/MoviesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MovieServletDeleteOrCreate</servlet-name>
+  	<url-pattern>/MovieServletDeleteOrCreate</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,8 +1,8 @@
 
-function sendAjaxData(data,callback){
+function sendAjaxData(URL,HTTP,data,callback){
 		$.ajax({
-			url: "/DiplomJSAdvance/MoviesServlet",
-			method: "POST",
+			url: URL,
+			method: HTTP,
 			data: JSON.stringify(data),
 			contentType: "application/json",
 			error: function(message){

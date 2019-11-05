@@ -66,14 +66,7 @@ public class MovieController {
 		String MAX_ID = "SELECT MAX(id) FROM movies";
 		try {
 			st.execute(DELETE_USER);
-		//	ResultSet rs = st.executeQuery(MAX_ID);
-//			while(rs.next()) 
-//			{
-//				if((movie.getId() - Integer.parseInt(rs.getString(1))) == 1) 
-//				{
-//					
-//				}
-//			}
+			ResultSet rs = st.executeQuery(MAX_ID);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,9 +1,8 @@
-function MovieView()
-{
+(function(){
 
-}
 
-MovieView.prototype = {
+
+var MovieView = {
 
 	render : function(movie,element)
 	{
@@ -70,7 +69,7 @@ MovieView.prototype = {
 				if(filmYear.length > 0)
 					movie.year = Number(filmYear);
 			}
-			sendAjaxData(movie,function(){alert("The data was update successful")});
+			sendAjaxData("/DiplomJSAdvance/MoviesServlet","POST",movie,function(){alert("The data was update successful")});
 			setTimeout(()=>window.location.reload(),1000);
 
 		}
@@ -79,7 +78,6 @@ MovieView.prototype = {
 			var span = document.querySelector(".close");
 			mod.style.display = "none";
 			span.removeEventListener("click",closeModal);
-			i.addEventListener("click",openModal);
 			window.MovieEditView.clear(element);
 		};
 		function openModal(){
@@ -91,7 +89,6 @@ MovieView.prototype = {
 			mod.style.display = "block";
 			span.addEventListener("click",closeModal);
 			buttonSend.addEventListener("click",sendData);
-			i.removeEventListener("click",openModal);
 		};
 		i.addEventListener("click",openModal);
 		i2.addEventListener("click",function(){
@@ -104,7 +101,7 @@ MovieView.prototype = {
 
 		}else{
 
-			var el = element.nextElementSibling
+			var el = element.nextElementSibling;
 			if((el)!=null)
 			{
 				this.render(movie,el);
@@ -117,7 +114,86 @@ MovieView.prototype = {
 			this.render(movie,newRow);
 			}
 			
+		}	
+	},
+
+
+
+	renderCreateModal : function(element){
+		if(element.children.length!=6){
+
+		var bootsTrapCol = document.createElement("div");
+		bootsTrapCol.classList.add("col-2");
+		var div = document.createElement("div");
+		div.classList.add("film-container")
+		var createMovie = document.createElement("i");
+		createMovie.classList.add("fas");
+		createMovie.classList.add("fa-plus-circle");
+		createMovie.id = "createMovie-button"
+
+		function closeModal(){
+			var mod = document.querySelector(".modal");
+			var span = document.querySelector(".close");
+			mod.style.display = "none";
+			span.removeEventListener("click",closeModal);
+			window.MovieEditView.clear(element);
+		};
+
+
+		function openModal(){
+			window.MovieCreateView.render(element);
+			var mod = document.querySelector(".modal");
+			var span = document.querySelector(".close");
+			var buttonSend = document.querySelector(".edit-movie-button");
+			mod.style.display = "block";
+			span.addEventListener("click",closeModal);
 		}
-		
+
+		function sendData(){
+			var arr = document.querySelectorAll(".textinput");
+			var movie = new Movie();
+			var filmName = arr[0].value;
+			var filmDesc = arr[1].value;
+			var filmGenre = arr[2].value;
+			var filmCountry = arr[3].value;
+			var filmRating = arr[4].value;
+			var filmYear = arr[5].value;
+			console.log(filmName);
+
+			if(filmName != null){
+				if(filmName.length > 0)
+					movie.setName(filmName);
+				if(filmDesc.length > 0)
+					movie.setDescription(filmDesc);
+				if(filmGenre.length > 0)
+					movie.setGenre(filmGenre);
+				if(filmCountry.length > 0)
+					movie.setCountry(filmCountry);
+				if(filmRating.length > 0)
+					movie.setRating(Number(filmRating));
+				if(filmYear.length > 0)
+					movie.setYear(Number(filmYear));
+			}
+			sendAjaxData("/DiplomJSAdvance/MoviesServlet","POST",movie,function(){alert("The data was update successful")});
+			setTimeout(()=>window.location.reload(),1000);
+		}
+		createMovie.addEventListener("click",openModal);
+		var buttonSend = document.querySelector(".edit-movie-button");
+		div.appendChild(createMovie);
+		createMovie.parentNode.style.border = "1px solid white";
+		createMovie.parentNode.style.height = "256px";
+		createMovie.parentNode.style.width = "160px";
+		createMovie.parentNode.style.padding = "60px 0px 0px 30px";
+		bootsTrapCol.appendChild(div);
+		element.appendChild(bootsTrapCol);
+		}else{
+			var newRow = document.createElement("div");
+			newRow.classList.add("row");
+			newRow.classList.add("film-showing");
+			var filmContainer =  document.querySelector(".container.film-showing").append(newRow);
+			this.renderCreateModal(newRow);
+		}
 	}
 }
+window.MovieView = MovieView;
+}());

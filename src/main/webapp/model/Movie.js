@@ -7,15 +7,16 @@
 // 	this.listOfActors = movie.listOfActors;
 // 	this.rating = movie.rating;
 // }
-function  Movie(id,name,description,genre,country,rating,year)
+function  Movie()
 {
-	this.id = id;
-	this.name = name;
-	this.description = description;
-	this.genre = genre;
-	this.country = country;
-	this.rating = rating;
-	this.year = year;
+	this.id = undefined;
+	this.name= undefined; 
+	this.description= undefined;
+	this.genre= undefined;
+	this.country= undefined;
+	this.rating= undefined; 
+	this.year= undefined;
+	this.imageSource = undefined;
 }
 
 
@@ -79,6 +80,14 @@ Movie.prototype =
 
 	getYear : function(){
 		return this.year;
+	},
+
+	setImageSource : function(source){
+		this.imageSource = source;
+	},
+
+	getImageSource : function(){
+		return this.imageSource;
 	}
 
 

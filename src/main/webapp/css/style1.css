@@ -36,7 +36,11 @@ main
 	width: 160px;
 	min-width:100%;
 }
-
+#createMovie-button 
+{
+	font-size:100px;
+	color:white;
+}
 .row.film-showing
 {
 	margin-top:20px;

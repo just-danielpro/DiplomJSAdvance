@@ -60,6 +60,18 @@ public class MovieController {
 		return (ArrayList<Movie>) list;
 	}
 	
+	public void createMovie(String name,String description,String genre,String country,int rating,int year,String imgSource) 
+	{
+		String CREATE_MOVIE = "INSERT INTO `movies`(`name`,`description`,genre,country,rating,`year`,`img-source`) VALUES('"+name+"',"
+	+"'"+description+"',"+"'"+genre+"','"+country+"',"+rating+","+year+",'"+imgSource+"');";
+		
+		try {
+			st.execute(CREATE_MOVIE);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void deleteMovie(Movie movie) 
 	{
 		String DELETE_USER = "DELETE FROM movies WHERE id = "+movie.getId();

@@ -22,6 +22,10 @@
 
 			var container = document.createElement("div"); // контейнер
 			container.classList.add("container");
+			var form = document.createElement("form");
+			form.setAttribute("action","/DiplomJSAdvance/MovieCreateServlet");
+			form.setAttribute("method","post");
+			form.setAttribute("enctype","multipart/form-data");
 
 			var row1 = document.createElement("div"); // ряд для изменений
 			row1.classList.add("row");
@@ -35,6 +39,7 @@
 			var inputFilmName = document.createElement("input");
 			inputFilmName.classList.add("textinput");
 			inputFilmName.setAttribute("type","text");
+			inputFilmName.setAttribute("name","name");
 
 			colFilmNameInput.appendChild(inputFilmName);
 			row1.appendChild(colFilmName);
@@ -50,6 +55,7 @@
 			var colFilmDescInput = document.createElement("div");
 			colFilmDescInput.classList.add("col-2");
 			var inputFilmDesc = document.createElement("textarea");
+			inputFilmDesc.setAttribute("name","description");
 			inputFilmDesc.classList.add("textinput");
 			inputFilmDesc.id = "textArea";
 
@@ -69,7 +75,7 @@
 			var inputFilmGenre = document.createElement("input");
 			inputFilmGenre.classList.add("textinput")
 			inputFilmGenre.setAttribute("type","text");
-			
+			inputFilmGenre.setAttribute("name","genre");
 
 			colFilmGenrecInput.appendChild(inputFilmGenre);
 			row3.appendChild(colFilmGenre);
@@ -87,7 +93,7 @@
 			var inputFilmCountry = document.createElement("input");
 			inputFilmCountry.classList.add("textinput");
 			inputFilmCountry.setAttribute("type","text");
-			
+			inputFilmCountry.setAttribute("name","country");
 
 			colFilmCountrycInput.appendChild(inputFilmCountry);
 			row4.appendChild(colFilmCountry);
@@ -105,7 +111,7 @@
 			var inputFilmRating = document.createElement("input");
 			inputFilmRating.classList.add("textinput");
 			inputFilmRating.setAttribute("type","text");
-			
+			inputFilmRating.setAttribute("name","rating");
 
 			colFilmRatingInput.appendChild(inputFilmRating);
 			row5.appendChild(colFilmRating);
@@ -123,7 +129,7 @@
 			var inputFilmYear = document.createElement("input");
 			inputFilmYear.classList.add("textinput");
 			inputFilmYear.setAttribute("type","text");
-			
+			inputFilmYear.setAttribute("name","year");
 
 			colFilmYearInput.appendChild(inputFilmYear);
 			row6.appendChild(colFilmYear);
@@ -135,11 +141,11 @@
 
 			var colFilmButton = document.createElement("div");
 			colFilmButton.classList.add("col-2");
-			var button = document.createElement("i");
-			button.classList.add("far");
-			button.classList.add("fa-share-square");
-			button.classList.add("edit-movie-button");
-
+			var button = document.createElement("input");
+			// button.classList.add("far");
+			// button.classList.add("fa-share-square");
+			// button.classList.add("edit-movie-button");
+			button.setAttribute("type","submit");
 			colFilmButton.appendChild(button);
 
 			row7.appendChild(colFilmButton);
@@ -156,19 +162,20 @@
 			var inputFilmImage = document.createElement("input");
 			inputFilmImage.classList.add("textinput");
 			inputFilmImage.setAttribute("type","file");
-
+			inputFilmImage.setAttribute("name","file");
 			colFilmImageInput.appendChild(inputFilmImage);
 			row8.appendChild(colFilmImage);
 			row8.appendChild(colFilmImageInput);
 			
-			container.appendChild(row1);
-			container.appendChild(row2);
-			container.appendChild(row3);
-			container.appendChild(row4);
-			container.appendChild(row5);
-			container.appendChild(row6);
-			container.appendChild(row8);
-			container.appendChild(row7);
+			form.appendChild(row1);
+			form.appendChild(row2);
+			form.appendChild(row3);
+			form.appendChild(row4);
+			form.appendChild(row5);
+			form.appendChild(row6);
+			form.appendChild(row8);
+			form.appendChild(row7);
+			container.appendChild(form);
 			modalContent.appendChild(span);
 			modalContent.appendChild(container);
 			modal.appendChild(modalContent);

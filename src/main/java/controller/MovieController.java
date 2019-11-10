@@ -31,10 +31,21 @@ public class MovieController {
 		}
 	}
 	
-	public void updateMovie(Movie movie) 
+//	public void updateMovie(Movie movie) 
+//	{
+//		String UPDATE_MOVIE = "UPDATE movies SET name='"+movie.getName()+"',description='"+movie.getDescription()+"',genre='"+movie.getGenre()+
+//				"',country='"+movie.getCountry()+"',rating="+movie.getRating()+",year="+movie.getYear()+" WHERE id="+movie.getId();
+//		try {
+//			st.execute(UPDATE_MOVIE);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+	public void updateMovie(String name,String description,String genre,String country,int rating,int year,String imgSource,int id) 
 	{
-		String UPDATE_MOVIE = "UPDATE movies SET name='"+movie.getName()+"',description='"+movie.getDescription()+"',genre='"+movie.getGenre()+
-				"',country='"+movie.getCountry()+"',rating="+movie.getRating()+",year="+movie.getYear()+" WHERE id="+movie.getId();
+		String UPDATE_MOVIE = "UPDATE  `movies` SET  `name`= '"+name+"',`description`='"+description+"',genre='"+genre+
+				"',country='"+country+"',rating="+rating+",`year`="+year+",`img-source`='"+imgSource+"' WHERE id = " + id +";";
+		System.out.println(UPDATE_MOVIE);
 		try {
 			st.execute(UPDATE_MOVIE);
 		} catch (SQLException e) {

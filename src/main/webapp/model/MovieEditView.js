@@ -5,6 +5,11 @@
 	var MovieEditView = {
 			render : function(id,element){	
 			var movie = window.MovieList.findMovieById(id);
+			var movieId = document.createElement("input");
+			movieId.setAttribute("type","hidden");
+			movieId.setAttribute("name","movieId");
+			movieId.setAttribute("value",id);
+			console.log(movieId);
 			var modal = document.createElement("div");
 			modal.classList.add("modal"); // первый div
 
@@ -23,7 +28,10 @@
 
 			var container = document.createElement("div"); // контейнер
 			container.classList.add("container");
-
+			var form = document.createElement("form");
+			form.setAttribute("action","/DiplomJSAdvance/MoviesServlet");
+			form.setAttribute("method","post");
+			form.setAttribute("enctype","multipart/form-data");
 			var row1 = document.createElement("div"); // ряд для изменений
 			row1.classList.add("row");
 			row1.classList.add("inputs-modal");
@@ -36,6 +44,7 @@
 			var inputFilmName = document.createElement("input");
 			inputFilmName.classList.add("textinput");
 			inputFilmName.setAttribute("type","text");
+			inputFilmName.setAttribute("name","name");
 			inputFilmName.setAttribute("value",movie.name);
 
 			colFilmNameInput.appendChild(inputFilmName);
@@ -53,6 +62,7 @@
 			colFilmDescInput.classList.add("col-2");
 			var inputFilmDesc = document.createElement("textarea");
 			inputFilmDesc.classList.add("textinput");
+			inputFilmDesc.setAttribute("name","description");
 			inputFilmDesc.id = "textArea";
 			inputFilmDesc.textContent = movie.description;
 
@@ -71,6 +81,7 @@
 			colFilmGenrecInput.classList.add("col-2");
 			var inputFilmGenre = document.createElement("input");
 			inputFilmGenre.classList.add("textinput")
+			inputFilmGenre.setAttribute("name","genre");
 			inputFilmGenre.setAttribute("type","text");
 			inputFilmGenre.setAttribute("value",movie.genre);
 			
@@ -91,6 +102,7 @@
 			var inputFilmCountry = document.createElement("input");
 			inputFilmCountry.classList.add("textinput");
 			inputFilmCountry.setAttribute("type","text");
+			inputFilmCountry.setAttribute("name","country");
 			inputFilmCountry.setAttribute("value",movie.country);
 			
 
@@ -110,6 +122,7 @@
 			var inputFilmRating = document.createElement("input");
 			inputFilmRating.classList.add("textinput");
 			inputFilmRating.setAttribute("type","text");
+			inputFilmRating.setAttribute("name","rating");
 			inputFilmRating.setAttribute("value",movie.rating);
 			
 
@@ -129,6 +142,7 @@
 			var inputFilmYear = document.createElement("input");
 			inputFilmYear.classList.add("textinput");
 			inputFilmYear.setAttribute("type","text");
+			inputFilmYear.setAttribute("name","year");
 			inputFilmYear.setAttribute("value",movie.year);
 			
 
@@ -142,23 +156,41 @@
 
 			var colFilmButton = document.createElement("div");
 			colFilmButton.classList.add("col-2");
-			var button = document.createElement("i");
-			button.classList.add("far");
-			button.classList.add("fa-share-square");
-			button.classList.add("edit-movie-button");
-
+			var button = document.createElement("input");
+			// button.classList.add("far");
+			// button.classList.add("fa-share-square");
+			// button.classList.add("edit-movie-button");
+			button.setAttribute("type","submit");
 			colFilmButton.appendChild(button);
-
 			row7.appendChild(colFilmButton);
 
+			var row8 = document.createElement("div"); // ряд для изменений
+			row8.classList.add("row");
+			row8.classList.add("inputs-modal");
+
+			var colFilmImage = document.createElement("div");
+			colFilmImage.classList.add("col-2");
+			colFilmImage.textContent = "Картинка фильма";
+			var colFilmImageInput = document.createElement("div");
+			colFilmImageInput.classList.add("col-2");
+			var inputFilmImage = document.createElement("input");
+			inputFilmImage.classList.add("textinput");
+			inputFilmImage.setAttribute("type","file");
+			inputFilmImage.setAttribute("name","file");
+			colFilmImageInput.appendChild(inputFilmImage);
+			row8.appendChild(colFilmImage);
+			row8.appendChild(colFilmImageInput);
 			
-			container.appendChild(row1);
-			container.appendChild(row2);
-			container.appendChild(row3);
-			container.appendChild(row4);
-			container.appendChild(row5);
-			container.appendChild(row6);
-			container.appendChild(row7);
+			form.appendChild(row1);
+			form.appendChild(row2);
+			form.appendChild(row3);
+			form.appendChild(row4);
+			form.appendChild(row5);
+			form.appendChild(row6);
+			form.appendChild(row8);
+			form.appendChild(row7);
+			form.appendChild(movieId);
+			container.appendChild(form);
 			modalContent.appendChild(span);
 			modalContent.appendChild(container);
 			modal.appendChild(modalContent);

@@ -13,7 +13,6 @@
 	renderAll: function(element){
 		this.movieList.forEach(item =>{
 			window.MovieView.render(item,element);
-			window.MovieView.renderCreateModal(element);
 		});
 
 	},
